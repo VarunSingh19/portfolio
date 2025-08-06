@@ -178,7 +178,7 @@ async function fetchContributionData(username: string): Promise<Activity[]> {
 
       // Handle different API response formats
       if (responseBody.contributions && Array.isArray(responseBody.contributions)) {
-        contributionData = responseBody.contributions.map((contrib: any) => ({
+        contributionData = responseBody.contributions.map((contrib: { date: string; contributionCount?: number; count?: number }) => ({
           date: contrib.date,
           count: contrib.contributionCount || contrib.count || 0,
           level: Math.min(Math.floor((contrib.contributionCount || contrib.count || 0) / 3), 4)
@@ -186,7 +186,7 @@ async function fetchContributionData(username: string): Promise<Activity[]> {
       } else if (responseBody.data && Array.isArray(responseBody.data)) {
         contributionData = responseBody.data;
       } else if (Array.isArray(responseBody)) {
-        contributionData = responseBody.map((contrib: any) => ({
+        contributionData = responseBody.map((contrib: { date: string; count?: number; contributionCount?: number; level?: number }) => ({
           date: contrib.date,
           count: contrib.count || contrib.contributionCount || 0,
           level: contrib.level || Math.min(Math.floor((contrib.count || 0) / 3), 4)

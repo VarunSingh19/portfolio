@@ -20,11 +20,11 @@ const SecurityInfo = () => {
             <div>
               <p className="font-medium text-sm">Blog Protection Active</p>
               <p className="text-xs text-gray-600 dark:text-gray-400">
-                Only blogs authored by "Varun Singh" can be modified or deleted.
+                Only blogs authored by &quot;Varun Singh&quot; can be modified or deleted.
               </p>
             </div>
           </div>
-          
+
           <div className="flex items-start space-x-3">
             <Eye className="w-4 h-4 mt-1 text-blue-600" />
             <div>
@@ -34,7 +34,7 @@ const SecurityInfo = () => {
               </p>
             </div>
           </div>
-          
+
           <div className="flex items-start space-x-3">
             <AlertTriangle className="w-4 h-4 mt-1 text-orange-600" />
             <div>
@@ -44,7 +44,7 @@ const SecurityInfo = () => {
               </p>
             </div>
           </div>
-          
+
           <div className="flex flex-wrap gap-2 pt-2">
             <Badge variant="outline" className="text-xs">
               Author Validation

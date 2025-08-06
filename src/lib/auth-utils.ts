@@ -53,7 +53,10 @@ export const ADMIN_SECURITY_HEADERS = {
 };
 
 // Log security events
-export function logSecurityEvent(event: string, details: any) {
+export function logSecurityEvent(
+  event: string,
+  details: Record<string, unknown>
+) {
   console.log(`[SECURITY] ${event}:`, {
     timestamp: new Date().toISOString(),
     ...details,

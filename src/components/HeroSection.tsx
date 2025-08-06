@@ -1,5 +1,4 @@
 import Avatar from "@/app/(home)/components/Avatar";
-import Link from "next/link";
 import { RainbowButton } from "./ui/rainbow-button";
 import { Link as ScrollLink } from 'react-scroll';
 import { bricolage_grotesque, inter } from "@/utils/fonts";
@@ -15,7 +14,7 @@ export default function HeroSection() {
             Hi, I&apos;m Varun Singh
           </h1>
           <p className={`mt-4 max-sm:mt-3 text-base max-sm:!text-sm font-normal leading-6 ${inter}`}>
-         Full-Stack Developer with hands-on experience in React, Next.js, Node.js, and MongoDB. Passionate about crafting performant, scalable web applications and integrating AI-driven features to enhance user experiences.
+            Full-Stack Developer with hands-on experience in React, Next.js, Node.js, and MongoDB. Passionate about crafting performant, scalable web applications and integrating AI-driven features to enhance user experiences.
           </p>
         </div>
 

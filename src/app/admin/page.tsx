@@ -29,7 +29,7 @@ const AdminDashboard = () => {
             if (data.success) {
                 setBlogs(data.message)
             }
-        } catch (error) {
+        } catch {
             toast.error('Failed to fetch blogs')
         } finally {
             setLoading(false)
