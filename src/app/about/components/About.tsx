@@ -11,7 +11,7 @@ const About = () => {
     const [isMore, setIsMore] = useState<boolean>(false);
     return (
         <div className='w-full px-64 max-[1285px]:px-52 max-lg:px-4 max-sm:px-5 flex flex-col items-center mt-4 pb-8'>
-            <Title title='My Journey to Full-Stack Development' />
+            <Title title='My Journey: From Curiosity to Code' />
 
             <div className="w-full pl-36 pr-28 max-sm:px-2">
 
@@ -83,8 +83,10 @@ const data: I_About[] = [
     {
         year: 2025,
         events: [
-            "Expanding my expertise in AI-driven web applications and exploring advanced full-stack architectures. 🚀",
-            "Building innovative projects that combine modern web technologies with intelligent features."
+            "🚀 Currently working as Full Stack Developer at Bonum eDesign LLP, building scalable web solutions",
+            "🎯 Expanding expertise in AI-driven applications and exploring cutting-edge technologies like Next.js 15",
+            "📈 Focusing on performance optimization and creating seamless user experiences",
+            "🌟 Mentoring junior developers and contributing to open-source projects"
         ]
     },
     {

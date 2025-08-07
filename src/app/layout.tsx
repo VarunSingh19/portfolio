@@ -8,6 +8,8 @@ import { Analytics } from '@vercel/analytics/react';
 import './globals.css'
 import ConditionalFooter from "./ConditionalFooter";
 import Provider from "@/context/Provider";
+import PerformanceOptimizer from "@/components/PerformanceOptimizer";
+import NavigationOptimizer from "@/components/NavigationOptimizer";
 
 export const metadata: Metadata = {
   title: "Varun Singh - Full Stack Developer",
@@ -43,11 +45,34 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function() {
+                try {
+                  var theme = localStorage.getItem('theme');
+                  var systemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+                  var isDark = theme ? theme === 'dark' : systemDark;
+
+                  if (isDark) {
+                    document.documentElement.classList.add('dark');
+                  } else {
+                    document.documentElement.classList.remove('dark');
+                  }
+                } catch (e) {}
+              })();
+            `,
+          }}
+        />
+      </head>
       <Provider>
         <DarkModeProvider>
           <body className={`bg-white dark:bg-black`}>
             <Toaster position='bottom-right' />
             <Theme className="dark:!bg-black">
+              <PerformanceOptimizer />
+              <NavigationOptimizer />
               <Navbar />
               {children}
               <Analytics />
