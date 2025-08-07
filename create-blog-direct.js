@@ -1,7 +1,15 @@
 const { PrismaClient } = require('@prisma/client');
 const fs = require('fs');
 
-const prisma = new PrismaClient();
+// Use production database URL if provided
+const databaseUrl = process.env.MONGODB_URI || process.env.DATABASE_URL;
+const prisma = new PrismaClient({
+    datasources: {
+        db: {
+            url: databaseUrl
+        }
+    }
+});
 
 async function createBlogDirect() {
     try {
@@ -44,14 +52,14 @@ async function createBlogDirect() {
 
     } catch (error) {
         console.error('❌ Error creating blog post:', error.message);
-        
+
         if (error.code === 'P1001') {
             console.log('💡 Database connection failed. Please check:');
             console.log('   - MongoDB is running');
             console.log('   - MONGODB_URI environment variable is set');
             console.log('   - Database credentials are correct');
         }
-        
+
         throw error;
     } finally {
         await prisma.$disconnect();
