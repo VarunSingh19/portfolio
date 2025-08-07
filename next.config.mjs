@@ -8,8 +8,8 @@ const nextConfig = {
     },
     // Performance optimizations
     experimental: {
-        optimizeCss: true,
         optimizePackageImports: ['lucide-react', '@radix-ui/react-icons'],
+        serverComponentsExternalPackages: ['@prisma/client'],
     },
     // Compression and caching
     compress: true,
