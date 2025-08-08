@@ -53,7 +53,7 @@ const EditBlogPage = () => {
         try {
             const response = await fetch(`/api/blogs/${blogid}`)
             const data = await response.json()
-            
+
             if (data.success && data.message) {
                 setBlog(data.message)
                 setTitle(data.message.title)
@@ -80,25 +80,42 @@ const EditBlogPage = () => {
         }
 
         setIsUpdating(true)
-        const formData = new FormData()
-        formData.append('title', title)
-        formData.append('content', content)
-        if (file) {
-            formData.append('file', file)
-        }
 
         try {
-            const response = await axios.put(`/api/blogs/${blogid}/update`, formData, {
-                headers: {
-                    'Content-Type': 'multipart/form-data',
-                },
-            })
+            let response;
+
+            if (file) {
+                // Use FormData if there's a file
+                const formData = new FormData()
+                formData.append('title', title)
+                formData.append('content', content)
+                formData.append('file', file)
+
+                response = await axios.put(`/api/blogs/${blogid}/update`, formData, {
+                    headers: {
+                        'Content-Type': 'multipart/form-data',
+                    },
+                })
+            } else {
+                // Use JSON if no file upload
+                response = await axios.put(`/api/blogs/${blogid}/update`, {
+                    title,
+                    content
+                }, {
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                })
+            }
 
             if (response.data.success) {
                 toast.success('Blog updated successfully!')
                 router.push('/admin')
+            } else {
+                toast.error(response.data.message || 'Failed to update blog')
             }
         } catch (error: any) {
+            console.error('Update error:', error)
             const errorMessage = error.response?.data?.message || 'Error while updating blog'
             toast.error(errorMessage)
         } finally {

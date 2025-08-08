@@ -34,10 +34,34 @@ export async function PUT(
   const blogid = params.blogid;
 
   try {
-    const formData = await req.formData();
-    const title = formData.get("title") as string;
-    const content = formData.get("content") as string;
-    const file = formData.get("file") as File | null;
+    let title: string;
+    let content: string;
+    let file: File | null = null;
+
+    const contentType = req.headers.get("content-type") || "";
+
+    if (contentType.includes("multipart/form-data")) {
+      // Handle FormData
+      const formData = await req.formData();
+      title = formData.get("title") as string;
+      content = formData.get("content") as string;
+      file = formData.get("file") as File | null;
+    } else if (contentType.includes("application/json")) {
+      // Handle JSON data as fallback
+      const jsonData = await req.json();
+      title = jsonData.title;
+      content = jsonData.content;
+      file = null; // No file upload with JSON
+    } else {
+      return NextResponse.json(
+        {
+          success: false,
+          message:
+            "Unsupported content type. Use multipart/form-data or application/json",
+        },
+        { status: 400 }
+      );
+    }
 
     if (!title || !content) {
       return NextResponse.json(

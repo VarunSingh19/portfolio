@@ -3,6 +3,8 @@ const fs = require('fs');
 
 // Use production database URL if provided
 const databaseUrl = process.env.MONGODB_URI || process.env.DATABASE_URL;
+console.log('🔗 Using database URL:', databaseUrl ? 'Set' : 'Not set');
+
 const prisma = new PrismaClient({
     datasources: {
         db: {

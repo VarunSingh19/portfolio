@@ -19,7 +19,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Varun Singh - Full Stack Developer",
     description: "Full Stack Developer with hands-on experience in React, Next.js, Node.js, and MongoDB. Passionate about crafting performant, scalable web applications and integrating AI-driven features.",
-    url: "https://varunsingh.vercel.app/",
+    url: "https://varunsinghh09.vercel.app/",
     siteName: "Varun Singh Portfolio",
     images: [
       {
