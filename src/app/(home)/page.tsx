@@ -9,7 +9,7 @@ import InitialLanding from "./components/InitialLanding"
 
 export default function Home() {
   return (
-    <div className="overflow-x-hidden mt-8 max-sm:mt-0">
+    <div className="max-[350px]:overflow-hidden mt-8 max-sm:mt-0">
       <InitialLanding />
 
       <div className="w-full flex justify-center mt-12">

@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react'
 import { Link } from '@radix-ui/themes'
-import { FaXTwitter } from "react-icons/fa6";
+import { FaGithub } from "react-icons/fa6";
 import { bricolage_grotesque } from '@/utils/fonts';
 import { Input } from "@/components/ui/input"
 import { Textarea } from './ui/textarea';
@@ -73,7 +73,7 @@ const Contact = () => {
 
                     <Link href="https://github.com/VarunSingh19" target="_blank">
                         <button className='bg-[#333] text-white py-2 px-3 rounded-md flex items-center gap-2 text-sm max-sm:text-xs hover:bg-[#555]'>
-                            <FaXTwitter className='h-[18px] w-[18px]' /> View GitHub
+                            <FaGithub className='h-[18px] w-[18px]' /> View GitHub
                         </button>
                     </Link>
                 </div>

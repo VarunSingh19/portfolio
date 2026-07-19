@@ -7,6 +7,17 @@ export type Project = {
     source?: string
 };
 
+export interface I_CompanyProjects {
+    slug: string,
+    company_name: string,
+    company_logo: string,
+    company_link?: string,
+    role: string,
+    duration: string,
+    techStack: string[],
+    projects: Project[]
+}
+
 export interface I_Heading {
     title: string
 }

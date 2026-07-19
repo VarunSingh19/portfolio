@@ -8,7 +8,14 @@ const nextConfig = {
     },
     // Performance optimizations
     experimental: {
-        optimizePackageImports: ['lucide-react', '@radix-ui/react-icons'],
+        optimizePackageImports: [
+            'lucide-react',
+            '@radix-ui/react-icons',
+            'react-icons',
+            '@radix-ui/themes',
+            'framer-motion',
+            '@react-three/drei',
+        ],
         serverComponentsExternalPackages: ['@prisma/client'],
     },
     // Compression and caching
